@@ -8,6 +8,9 @@ import ManageItems from './Components/ManageItems/ManageItems';
 import MyItems from './Components/MyItems/MyItems';
 import SignIn from './Components/SignIn/SignIn';
 import SignUp from './Components/SignUp/SignUp';
+import NotFound from './Components/NotFound/NotFound';
+import RequireAuth from './Components/RequiredAuth/RequiredAuth';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   return (
@@ -17,11 +20,16 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/blogs" element={<Blogs />} />
         <Route path="about" element={<MyItems />} />
-        <Route path="about" element={<ManageItems />} />
-        <Route path="about" element={<SignIn />} />
-        <Route path="about" element={<SignUp />} />
+        <Route path="/manageItems" element={
+        <RequireAuth>
+        <ManageItems />
+        </RequireAuth>
+        } />
+        <Route path="/signIn" element={<SignIn />} />
+        <Route path="/signUp" element={<SignUp />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
-      <Footer></Footer>
+           <Footer></Footer>
     </div>
   );
 }

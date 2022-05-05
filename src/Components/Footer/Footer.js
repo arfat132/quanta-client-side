@@ -19,13 +19,13 @@ const Footer = () => {
             <h2 className="title-font uppercase font-semibold text-white tracking-widest text-sm mb-3">About me</h2>
             <nav className="list-none mb-10">
               <li>
-                <Link to="" className="hover:text-gray-800 mb-3 flex items-center"><RiArrowRightSFill/> About</Link>
+                <Link to="" className="hover:text-blue-800 mb-3 flex items-center"><RiArrowRightSFill/> About</Link>
               </li>
               <li>
-                <Link to="" className="hover:text-gray-800 mb-3 flex items-center"><RiArrowRightSFill/> Licensing</Link>
+                <Link to="" className="hover:text-blue-800 mb-3 flex items-center"><RiArrowRightSFill/> Licensing</Link>
               </li>
               <li>
-                <Link to="" className="hover:text-gray-800 flex items-center"><RiArrowRightSFill/> Contact</Link>
+                <Link to="" className="hover:text-blue-800 flex items-center"><RiArrowRightSFill/> Contact</Link>
               </li>
             </nav>
           </div>
@@ -33,13 +33,13 @@ const Footer = () => {
             <h2 className="title-font uppercase font-semibold text-white tracking-widest text-sm mb-3">Follow me</h2>
             <nav className="list-none mb-10">
               <li>
-                <Link to="" className="hover:text-gray-800 mb-2 flex items-center"><RiArrowRightSFill/> Facebook</Link>
+                <Link to="" className="hover:text-blue-800 mb-2 flex items-center"><RiArrowRightSFill/> Facebook</Link>
               </li>
               <li>
-                <Link to="" className="hover:text-gray-800 mb-2 flex items-center"><RiArrowRightSFill/> Github</Link>
+                <Link to="" className="hover:text-blue-800 mb-2 flex items-center"><RiArrowRightSFill/> Github</Link>
               </li>
               <li>
-                <Link to="" className="hover:text-gray-800 flex items-center"><RiArrowRightSFill/> Twitter</Link>
+                <Link to="" className="hover:text-blue-800 flex items-center"><RiArrowRightSFill/> Twitter</Link>
               </li>
 
             </nav>
@@ -49,13 +49,13 @@ const Footer = () => {
             <nav className="list-none mb-10">
               <li>
                 
-                <Link to="" className="hover:text-gray-800 mb-2 flex items-center"><RiArrowRightSFill/> Privacy Policy</Link>
+                <Link to="" className="hover:text-blue-800 mb-2 flex items-center"><RiArrowRightSFill/> Privacy Policy</Link>
               </li>
               <li>
-                <Link to="" className="hover:text-gray-800 mb-2 flex items-center"><RiArrowRightSFill/> Terms & Conditions</Link>
+                <Link to="" className="hover:text-blue-800 mb-2 flex items-center"><RiArrowRightSFill/> Terms & Conditions</Link>
               </li>
               <li>
-                <Link to="" className="hover:text-gray-800 flex items-center"><RiArrowRightSFill/> Resources</Link>
+                <Link to="" className="hover:text-blue-800 flex items-center"><RiArrowRightSFill/> Resources</Link>
               </li>
 
             </nav>

@@ -9,7 +9,7 @@ const Home = () => {
     return (
         <div>
             <section>
-               <img src={Banner} alt="" srcset="" />
+               <img src={Banner} alt="" srcSet="" />
             </section>
             <About></About>
             <InventoryItems></InventoryItems>
