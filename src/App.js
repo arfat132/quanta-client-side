@@ -19,7 +19,7 @@ function App() {
      <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/blogs" element={<Blogs />} />
-        <Route path="about" element={<MyItems />} />
+        <Route path="/myItems" element={<MyItems />} />
         <Route path="/manageItems" element={
         <RequireAuth>
         <ManageItems />

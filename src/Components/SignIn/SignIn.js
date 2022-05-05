@@ -82,6 +82,7 @@ const SignIn = () => {
             navigate(from, { replace: true });
         }
     }, [user]);
+
     return (
         <section className="bg-gray-200 py-20">
             <div className="container mt-16 px-36">
@@ -99,43 +100,30 @@ const SignIn = () => {
                                             />
                                             <h4 className="text-xl font-semibold my-3 text-sky-800">QUANTA</h4>
                                         </div>
-                                        <form onSubmit={handleSignIn}>
-                                            <p className="mb-4 text-xl uppercase text-sky-800 font-bold ml-2">Sign In</p>
-                                            <div className="mb-4">
+                                        <form onSubmit={handleSignIn} className='login'>
+                                        <h4 className="text-xl font-semibold my-3 text-sky-800 ml-2">SIGN IN</h4>
+                                            <div className="mb-6">
                                                 <input
                                                     onBlur={handleEmail}
-                                                    type="email"
-                                                    className="form-control block w-full px-3 py-2 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded-3xl transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                                                    id="exampleFormControlInput1"
-                                                    placeholder="Email"
-                                                />
-                                                 {errors?.email && <p className="flex items-center text-red-500 mt-4 ml-4 font-bold text-sm"><TiDeleteOutline className='mr-2 text-lg'> </TiDeleteOutline> {errors.email}</p>}
+                                                    type="email" id="email"
+                                                    className="shadow-md bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-3xl focus:ring-blue-900 focus:border-blue-900 block w-full p-2.5 " placeholder="Enter Your Email" required="" />
+                                                {errors?.email && <p className="flex items-center text-red-500 mt-4 ml-4 font-bold"><TiDeleteOutline className='mr-2 text-xl mt-1'> </TiDeleteOutline> {errors.email}</p>}
                                             </div>
-                                            <div className="mb-4 relative">
+                                            <div className="mb-6 relative">
                                                 <input
                                                     onBlur={handlePassword}
                                                     type={showPass ? "text" : "password"}
-                                                    className="form-control block w-full px-3 py-2 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded-3xl transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                                                    id="exampleFormControlInput1"
-                                                    placeholder="Password"
-                                                />
-                                                {errors?.password && <p className="flex items-center text-red-500 mt-4 ml-4 font-bold text-sm"><TiDeleteOutline className='mr-2 text-lg'> </TiDeleteOutline> {errors.password}</p>}
+                                                    id="password"
+                                                    className="shadow-md bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-3xl focus:ring-blue-500 focus:border-blue-500 block w-full  p-2.5"
+                                                    placeholder="Enter Your Password" required="" />
+                                                {errors?.password && <p className="flex text-red-500 mt-4 ml-4 font-bold"><TiDeleteOutline className='mr-2 text-2xl'> </TiDeleteOutline> {errors.password}</p>}
                                                 <p className="absolute top-3 right-5 cursor-pointer" onClick={() => setShowPass(!showPass)}><BsEyeSlash /></p>
                                             </div>
-                                            <div className="text-center pt-1 mb-6 pb-1">
-                                                <button
-                                                    className="inline-block px-6 py-3 text-white font-medium text-xs leading-tight uppercase rounded-3xl shadow-md bg-sky-800 hover:bg-indigo-800 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full mb-3"
-                                                    type="button"
-                                                    data-mdb-ripple="true"
-                                                    data-mdb-ripple-color="light"
-
-                                                >
-                                                    Sign In
-                                                </button>
-                                                <button onClick={forgetPassword} className="text-gray-500">Forgot password?</button>
-                                            </div>
-                                            <div className="flex items-center justify-between">
-                                                <p className="mb-0 mr-2">Don't have an account?</p>
+                                            <button type="submit" className="inline-block px-6 py-3 text-white font-medium text-xs leading-tight uppercase rounded-3xl shadow-md bg-sky-800 hover:bg-indigo-800 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full mb-3">Sign In</button>
+                                            <label htmlFor="terms" className="font-medium text-gray-900 dark:text-gray-300 ml-28"><button onClick={forgetPassword} className="text-blue-900 font-semibold hover:underline">Forget Password?</button></label>
+                                               
+                                            <div className="flex items-center justify-between mt-4">
+                                                <p className="mb-0 mr-2">Already Have An Account?</p>
                                                 <Link to='/signUp' className='inline-block px-6 py-2 bg-sky-800 text-white font-medium text-xs leading-tight uppercase rounded-3xl hover:bg-indigo-800 focus:outline-none focus:ring-0 transition duration-150 ease-in-out'> Sign Up</Link>
 
                                             </div>

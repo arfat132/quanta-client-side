@@ -97,7 +97,7 @@ const SignUp = () => {
     }, [user]);
 
     return (
- <section className="bg-gray-200 py-20">
+        <section className="bg-gray-200 py-20">
             <div className="container mt-16 px-36">
                 <div className="flex justify-center items-center flex-wrap g-6 text-gray-800">
                     <div className="xl:w-10/12">
@@ -114,56 +114,48 @@ const SignUp = () => {
                                             <h4 className="text-xl font-semibold my-3 text-sky-800">QUANTA</h4>
                                         </div>
                                         <form onSubmit={handleSignUp}>
-                                            <p className="mb-4 text-xl uppercase text-sky-800 font-bold ml-2">Sign Up</p>
-                                            <div className="mb-4">
+                                        <h4 className="text-xl font-semibold my-3 text-sky-800 ml-2">SIGN UP</h4>
+                                            <div className="mb-6">
                                                 <input
                                                     onBlur={handleEmail}
                                                     type="email"
-                                                    className="form-control block w-full px-3 py-2 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded-3xl transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                                                    id="exampleFormControlInput1"
-                                                        placeholder="Email"
-                                                        required
-                                                />
-                                                 {errors?.email && <p className="flex items-center text-red-500 mt-4 ml-4 font-bold text-sm"><TiDeleteOutline className='mr-2 text-lg'> </TiDeleteOutline> {errors.email}</p>}
+                                                    id="email"
+                                                    className="shadow-md bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-3xl focus:ring-blue-900 focus:border-blue-900 block w-full p-2.5"
+                                                    placeholder="Enter Your Email"
+                                                    required="" />
+                                                {errors?.email && <p className="flex items-center text-red-500 mt-4 ml-4 font-bold"><TiDeleteOutline className='mr-2 text-xl mt-1'> </TiDeleteOutline> {errors.email}</p>}
                                             </div>
-                                            <div className="mb-4 relative">
+                                            <div className="mb-6 relative">
                                                 <input
                                                     onBlur={handlePassword}
                                                     type={showPass ? "text" : "password"}
-                                                    className="form-control block w-full px-3 py-2 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded-3xl transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                                                    id="exampleFormControlInput1"
-                                                        placeholder="Password"
-                                                        required
-                                                />
-                                                {errors?.password && <p className="flex items-center text-red-500 mt-4 ml-4 font-bold text-sm"><TiDeleteOutline className='mr-2 text-lg'> </TiDeleteOutline> {errors.password}</p>}
+                                                    id="password"
+                                                    className="shadow-md bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-3xl focus:ring-blue-900 focus:border-blue-900 block w-full p-2.5   "
+                                                    placeholder="Enter Your Password"
+                                                    required="" />
+                                                {errors?.password && <p className="flex text-red-500 mt-4 ml-4 font-bold"><TiDeleteOutline className='mr-2 text-2xl'> </TiDeleteOutline> {errors.password}</p>}
                                                 <p className="absolute top-3 right-5 cursor-pointer" onClick={() => setShowPass(!showPass)}><BsEyeSlash /></p>
-                                                </div>
-                                                <div className="mb-4 relative">
+                                            </div>
+                                            <div className="mb-6">
                                                 <input
                                                     onBlur={handleConfirmPassword}
-                                                    type={showPass ? "text" : "password"}
-                                                    className="form-control block w-full px-3 py-2 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded-3xl transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                                                    id="exampleFormControlInput1"
-                                                        placeholder="Confirm Password"
-                                                        required
-                                                />
-                                                 {errors?.confirmPassword && <p className="flex items-center text-red-500 mt-4 ml-4 font-bold text-sm"><TiDeleteOutline className='mr-2 text-sm'> </TiDeleteOutline> {errors.confirmPassword}</p>}
-                                                <p className="absolute top-3 right-5 cursor-pointer" onClick={() => setShowPass(!showPass)}><BsEyeSlash /></p>
+                                                    type='password'
+                                                    id="confirmPassword"
+                                                    className="shadow-md bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-3xl focus:ring-blue-900 focus:border-blue-900 block w-full p-2.5 " placeholder="Confirm Password" required="" />
+                                                {errors?.confirmPassword && <p className="flex items-center text-red-500 mt-4 ml-4 font-bold"><TiDeleteOutline className='mr-2 text-xl mt-1'> </TiDeleteOutline> {errors.confirmPassword}</p>}
                                             </div>
-                                            <div className="text-center pt-1 mb-6 pb-1">
-                                                <button
-                                                    className="inline-block px-6 py-3 text-white font-medium text-xs leading-tight uppercase rounded-3xl shadow-md bg-sky-800 hover:bg-indigo-800 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full mb-3"
-                                                    type="button"
-                                                    data-mdb-ripple="true"
-                                                    data-mdb-ripple-color="light"
-
-                                                >
-                                                    Sign Up
-                                                </button>
-                                                <button onClick={forgetPassword} className="text-gray-500">Forgot password?</button>
+                                            <button type="submit" className="inline-block px-6 py-3 text-white font-medium text-xs leading-tight uppercase rounded-3xl shadow-md bg-sky-800 hover:bg-indigo-800 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full mb-3">Sign Up</button>
+                                            <label htmlFor="terms" className="font-medium text-gray-900 text-center ml-28"><button onClick={forgetPassword} className="text-blue-900 font-semibold hover:underline">Forget Password?</button></label>
+                                            <div className="flex items-start mb-6 mt-4">
+                                                <div className="flex items-center h-5">
+                                                    <input id="terms" aria-describedby="terms" type="checkbox" className="w-4 h-4 bg-gray-50 rounded border border-gray-300 focus:ring-3 focus:ring-blue-900 " required="" />
+                                                </div>
+                                                <div className="ml-3 text-sm">
+                                                    <label htmlFor="terms" className="font-medium text-gray-900">I agree with the <Link to="" className="text-blue-900 hover:underline">terms and conditions</Link></label>
+                                                </div>
                                             </div>
                                             <div className="flex items-center justify-between">
-                                                <p className="mb-0 mr-2">Already have an account?</p>
+                                                <p className="mb-0 mr-2">Already Have An Account?</p>
                                                 <Link to='/signIn' className='inline-block px-6 py-2 bg-sky-800 text-white font-medium text-xs leading-tight uppercase rounded-3xl hover:bg-indigo-800 focus:outline-none focus:ring-0 transition duration-150 ease-in-out'> Sign In</Link>
 
                                             </div>
@@ -172,8 +164,9 @@ const SignUp = () => {
                                                 <span>or</span>
                                                 <hr className='border-blue-900 h-px w-full ml-2 mt-1' />
                                             </div>
-                                            </form>
                                             <button onClick={() => signInWithGoogle()} className="flex items-center justify-center shadow-md bg-gray-50 border font-bold border-gray-300 text-gray-900 text-sm rounded-3xl focus:ring-blue-900 focus:border-blue-900 w-full p-2.5"> <img className='w-6 pr-2' src={GoogleLogo} alt='' /> Continue with Google</button>
+                                        </form>
+
                                     </div>
                                 </div>
                                 <div
@@ -189,8 +182,8 @@ const SignUp = () => {
                         </div>
                     </div>
                 </div>
-                </div>
-                <ToastContainer></ToastContainer>
+            </div>
+            <ToastContainer></ToastContainer>
         </section>
     );
 };
