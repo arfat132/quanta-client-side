@@ -3,11 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import InventoryItem from '../InventoryItem/InventoryItem';
 
 const InventoryItems = () => {
-    const [InventoryItems, setInventoryItems] = useState([]);
+    const [inventoryItems, setInventoryItems] = useState([]);
     const navigate=useNavigate()
     
         useEffect(() => {
-            fetch('services.json')
+            fetch('http://localhost:5000/inventory')
                 .then(res => res.json())
             .then(data=>setInventoryItems(data))
         },[])
@@ -18,10 +18,10 @@ const InventoryItems = () => {
             <div className="flex flex-wrap -m-4">
                
                 {
-                    InventoryItems.map(service =>
+                    inventoryItems.map(inventoryItem =>
                         <InventoryItem
-                            key={service.id}
-                            service={service}
+                            key={inventoryItem._id}
+                            inventoryItem={inventoryItem}
                         ></InventoryItem>)
               }
                
@@ -35,4 +35,4 @@ const InventoryItems = () => {
     );
 };
 
-export default InventoryItems;
+export default InventoryItems;          

@@ -19,15 +19,20 @@ const Navbar = () => {
                     <Link to="/" className="mr-5 hover:text-gray-300">Home</Link>
                     <Link to="" className="mr-5 hover:text-gray-300">About</Link>
                     <Link to="/blogs" className="mr-5 hover:text-gray-300">Blogs</Link>
-                    <Link to="/manageItems" className="mr-5 hover:text-gray-300">Manage Items</Link>
-                    <Link to="/myItems" className="mr-5 hover:text-gray-300">My Items</Link>
+                    
                 </nav>
                 {user?.uid ?
-                    <Link to="/signIn" onClick={() => signOut(auth)} className="md:border-l md:border-gray-400 font-semibold uppercase inline-flex items-center bg-none border-0 py-1 px-3 text-white focus:outline-none rounded text-base mt-4 md:mt-0">Sign Out
+                    <>
+                        <Link to="/manageItems" className="mr-5 hover:text-gray-300 font-medium uppercase">My Items</Link>
+                        <Link to="/myItems" className="mr-5 hover:text-gray-300 font-medium uppercase">Add Items</Link>
+                        <Link to="/myItems" className="mr-5 hover:text-gray-300 font-medium uppercase">Manage Items</Link>
+                         <Link to="/signIn" onClick={() => signOut(auth)} className="md:border-l md:border-gray-400 font-semibold uppercase inline-flex items-center bg-none border-0 py-1 px-3 text-white focus:outline-none rounded text-base mt-4 md:mt-0">Sign Out
                         <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-4 h-4 ml-1" viewBox="0 0 24 24">
                             <path d="M5 12h14M12 5l7 7-7 7"></path>
                         </svg>
-                    </Link>
+                        </Link>
+                        
+                    </>
                     :
                     <Link to="/signIn" className="md:border-l md:border-gray-400 font-semibold uppercase inline-flex items-center bg-none border-0 py-1 px-3 text-white focus:outline-none rounded text-base mt-4 md:mt-0">Sign In
                         <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-4 h-4 ml-1" viewBox="0 0 24 24">
