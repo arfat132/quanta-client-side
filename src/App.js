@@ -10,7 +10,7 @@ import SignIn from './Components/SignIn/SignIn';
 import SignUp from './Components/SignUp/SignUp';
 import NotFound from './Components/NotFound/NotFound';
 import RequireAuth from './Components/RequiredAuth/RequiredAuth';
-import { ToastContainer } from 'react-toastify';
+
 
 function App() {
   return (
