@@ -18,7 +18,7 @@ const InventoryItems = () => {
             <div className="flex flex-wrap -m-4">
                
                 {
-                    inventoryItems.map(inventoryItem =>
+                    inventoryItems.slice(0,6).map(inventoryItem =>
                         <InventoryItem
                             key={inventoryItem._id}
                             inventoryItem={inventoryItem}

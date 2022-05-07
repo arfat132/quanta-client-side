@@ -11,31 +11,37 @@ import SignUp from './Components/SignUp/SignUp';
 import NotFound from './Components/NotFound/NotFound';
 import RequireAuth from './Components/RequiredAuth/RequiredAuth';
 import InventoryDetails from './Components/InventoryDetails/InventoryDetails';
+import AddItems from './Components/AddItems/AddItems';
 
 
 function App() {
   return (
     <div>
       <Navbar></Navbar>
-     <Routes>
+      <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/inventory/:id" element={
-        <RequireAuth>
-        <InventoryDetails />
-        </RequireAuth>
+          <RequireAuth>
+            <InventoryDetails />
+          </RequireAuth>
         } />
         <Route path="/myItems" element={<MyItems />} />
+        <Route path="/addItems" element={
+          <RequireAuth>
+            <AddItems />
+          </RequireAuth>
+        } />
         <Route path="/manageItems" element={
-        <RequireAuth>
-        <ManageItems />
-        </RequireAuth>
+          <RequireAuth>
+            <ManageItems />
+          </RequireAuth>
         } />
         <Route path="/signIn" element={<SignIn />} />
         <Route path="/signUp" element={<SignUp />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-           <Footer></Footer>
+      <Footer></Footer>
     </div>
   );
 }

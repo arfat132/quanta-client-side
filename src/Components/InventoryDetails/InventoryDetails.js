@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const InventoryDetails = () => {
     const { id } = useParams();
     const [inventoryDetails, setInventoryDetails] = useState({});
+    const navigate = useNavigate();
 
     useEffect(() => {
         fetch(`http://localhost:5000/inventory/${id}`)
@@ -12,9 +13,9 @@ const InventoryDetails = () => {
     }, [id])
     return (
         <section className="text-gray-600 body-font overflow-hidden pt-12">
-            <div className="container px-5 py-24 mx-auto">
+            <div className="container px-5 pt-24 pb-12 mx-auto">
                 <div className="lg:w-4/5 mx-auto flex flex-wrap">
-                    <img alt="ecommerce" className="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" src={inventoryDetails.img}/>
+                    <img alt="ecommerce" className="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" src={inventoryDetails.img} />
                     <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
                         <h2 className="text-sm title-font text-sky-800 tracking-widest uppercase mb-2">Supplier:{inventoryDetails.supplier}</h2>
                         <h2 className="text-sm title-font text-gray-500 tracking-widest uppercase">id:{id}</h2>
@@ -38,6 +39,10 @@ const InventoryDetails = () => {
                     </div>
                 </div>
             </div>
+            <button onClick={() => navigate('/manageItems')} className='px-20 pb-12 float-right uppercase text-xl font-bold text-sky-800 inline-flex items-center'>Manage Inventories  <svg className="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" stroke-Linejoin="round">
+                <path d="M5 12h14"></path>
+                <path d="M12 5l7 7-7 7"></path>
+            </svg></button>
         </section>
     );
 };
