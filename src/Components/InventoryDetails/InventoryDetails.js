@@ -4,6 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 const InventoryDetails = () => {
     const { id } = useParams();
     const [inventoryDetails, setInventoryDetails] = useState({});
+ 
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -11,6 +12,52 @@ const InventoryDetails = () => {
             .then(res => res.json())
             .then(data => setInventoryDetails(data))
     }, [id])
+
+    const handleUpdatedStock = event => {
+        event.preventDefault();
+        
+        const stock = event.target.stock.value;
+        console.log(stock)
+        const newStock = parseInt(stock) + inventoryDetails.stock;
+        const updatedStock ={ newStock };
+        console.log(updatedStock )
+
+        const url = `http://localhost:5000/inventory/${id}`;
+        fetch(url, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(updatedStock)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log('success', data);
+                alert('Restock Successfully');
+                event.target.reset();
+            })
+    }
+    const handleDeliver = event => {
+
+        const newStock = parseInt(inventoryDetails.stock) - 1;
+        const updatedStock ={ newStock };
+        console.log(updatedStock )
+
+        const url = `http://localhost:5000/inventory/${id}`;
+        fetch(url, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(updatedStock)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log('success', data);
+                alert('Restock Successfully');
+                
+            })
+    }
     return (
         <section className="text-gray-600 body-font overflow-hidden pt-12">
             <div className="container px-5 pt-24 pb-12 mx-auto">
@@ -26,16 +73,15 @@ const InventoryDetails = () => {
                             <span className="text-red-700 text-sm font-semibold mr-2 px-2.5 py-0.5 roundedml-3">Sold</span>
                         </div>
                         <p className="leading-relaxed my-6">{inventoryDetails.description}</p>
-                        <button className="flex text-white bg-sky-800 border-0 py-2.5 px-4 hover:bg-indigo-800 rounded font-semibold text-sm mb-6">DELIVERED</button>
-                        <div className="flex">
+                        <button onClick={handleDeliver} className="flex text-white bg-sky-800 border-0 py-2.5 px-4 hover:bg-indigo-800 rounded font-semibold text-sm mb-6">DELIVERED</button>
+                        <form onSubmit={ handleUpdatedStock} className="flex">
                             <input
                                 type='number'
-                                name='number'
+                                name='stock'
                                 className="shadow-md bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg mr-5 focus:ring-blue-500 focus:border-blue-500 block w-full  p-2.5"
                                 placeholder="Put a number" required />
                             <button className="flex ml-auto text-white bg-sky-800 border-0 py-2.5 px-4 hover:bg-indigo-800 rounded font-semibold text-sm">RESTOCK</button>
-
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>

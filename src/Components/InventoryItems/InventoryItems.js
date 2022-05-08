@@ -14,7 +14,7 @@ const InventoryItems = () => {
     return (
         <section id='#services' className="text-gray-600 body-font">
         <div className="container px-20 pb-16 mx-auto">
-            <h1 className='text-center text-sky-800 uppercase text-3xl font-bold my-8'>Inventory Items <div className='w-24 h-1 bg-sky-800 rounded-lg mx-auto mt-2'></div></h1>
+            <h1 className='text-center text-sky-800 uppercase text-3xl font-bold py-8'>Inventory Items <div className='w-24 h-1 bg-sky-800 rounded-lg mx-auto mt-2'></div></h1>
             <div className="flex flex-wrap -m-4">
                
                 {
