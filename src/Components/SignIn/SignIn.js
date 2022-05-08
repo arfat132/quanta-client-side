@@ -8,7 +8,9 @@ import auth from '../../Firebase/firebase.init';
 import { BsEyeSlash } from "@react-icons/all-files/bs/BsEyeSlash";
 import { TiDeleteOutline } from "@react-icons/all-files/ti/TiDeleteOutline";
 import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Spinner from '../Spinner/Spinner';
+import axios from 'axios';
 const SignIn = () => {
     const [userInfo, setUserInfo] = useState({
         email: "",
@@ -23,7 +25,7 @@ const SignIn = () => {
     });
     const [loading, setLoading] = useState(false)
     const [showPass, setShowPass] = useState(false);
-    const [signInWithEmail, user, signInLoading, hookError] = useSignInWithEmailAndPassword(auth);
+    const [signInWithEmailAndPassword, user, signInLoading, hookError] = useSignInWithEmailAndPassword(auth);
     const [signInWithGoogle, googleUser, googleloading, googleError] = useSignInWithGoogle(auth);
     const [sendPasswordResetEmail, sending, passwordResetError] = useSendPasswordResetEmail(
         auth
@@ -57,10 +59,15 @@ const SignIn = () => {
         };
     };
 
-    const handleSignIn = (event) => {
+    const handleSignIn = async (event) => {
         event.preventDefault();
         console.log(userInfo);
-        signInWithEmail(userInfo.email, userInfo.password);
+        await signInWithEmailAndPassword(userInfo.email, userInfo.password);
+        const userEmail = userInfo.email;
+        const { data } = await axios.post('http://localhost:5000/signIn', {userEmail})
+        console.log(data);
+        localStorage.setItem('accessToken', data.accessToken)
+        navigate(from, { replace: true });
     };
     useEffect(() => {
         setLoading(true)
@@ -84,7 +91,7 @@ const SignIn = () => {
     useEffect(() => {
         setLoading(true)
         if (user) {
-            navigate(from, { replace: true });
+           // navigate(from, { replace: true });
         }
         setLoading(false)
     }, [user]);

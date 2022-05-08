@@ -8,6 +8,7 @@ import signUp from '../Images/signUp.png';
 import logo from '../Images/logo.png';
 import GoogleLogo from '../Images/google.svg';
 import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Spinner from '../Spinner/Spinner';
 
 const SignUp = () => {

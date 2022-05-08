@@ -11,7 +11,7 @@ const InventoryDetails = () => {
         fetch(`http://localhost:5000/inventory/${id}`)
             .then(res => res.json())
             .then(data => setInventoryDetails(data))
-    }, [id])
+    }, [id, inventoryDetails])
 
     const handleUpdatedStock = event => {
         event.preventDefault();
@@ -36,6 +36,7 @@ const InventoryDetails = () => {
                 alert('Restock Successfully');
                 event.target.reset();
             })
+            
     }
     const handleDeliver = event => {
 
@@ -54,9 +55,10 @@ const InventoryDetails = () => {
             .then(res => res.json())
             .then(data => {
                 console.log('success', data);
-                alert('Restock Successfully');
+                alert('Delivered Successfully');
                 
             })
+            
     }
     return (
         <section className="text-gray-600 body-font overflow-hidden pt-12">

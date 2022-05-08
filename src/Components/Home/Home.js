@@ -5,7 +5,6 @@ import Banner from '../Images/banner.jpg';
 import LogoSection from '../LogoSection/LogoSection';
 
 const Home = () => {
-   
 
     return (
         <div>

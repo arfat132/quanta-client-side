@@ -12,7 +12,7 @@ const Footer = () => {
             <img src={logo} alt="" />
             <span className="relative text-2xl font-semibold text-white ml-2">QUANTA</span>
           </Link>
-          <p className="mt-2 text-sm text-gray-400">If you are curious about available houses or land in the New York City, you pick the right place to start.</p>
+          <p className="mt-2 text-sm text-gray-400">We are responsible for organising the safe and efficient receipt, storage and despatch of goods.</p>
         </div>
         <div className="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
           <div className="lg:w-1/4 md:w-1/2 w-full px-4">

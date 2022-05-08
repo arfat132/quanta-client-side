@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { RiDeleteBin6Line } from "@react-icons/all-files/ri/RiDeleteBin6Line";
 
-const MyItem = ({ myItem}) => {
+const MyItem = ({ myItem, handleDelete}) => {
     const {name, img, price, stock, description, supplier } = myItem;
  
     return (
@@ -19,8 +19,8 @@ const MyItem = ({ myItem}) => {
                     <p className='pb-4'>{description }</p>
                     <div className="flex justify-between items-center">
                         <span className="text-3xl font-bold text-gray-900">${price}</span>
-                        <button  className="text-white hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-bold rounded-lg text-sm  px-5 py-2.5 text-center bg-sky-800">UPDATE</button>
-
+                        <div className="flex items-center"><button  className="text-white hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-bold rounded-lg text-sm  px-5 py-2.5 text-center bg-sky-800">UPDATE</button>
+                        <button onClick={() => handleDelete(myItem._id)} className="text-white font-bold rounded-lg text-xl  p-2.5 text-center bg-red-700 ml-2"><RiDeleteBin6Line /></button></div>
                     </div>
 
                 </div>
