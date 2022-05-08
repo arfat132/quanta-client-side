@@ -14,7 +14,7 @@ const MyItems = () => {
         const getMyInventory = async () => {
           const email = user?.email;
           console.log(email);
-          const url = `http://localhost:5000/inventory?email=${email}`;
+          const url = `http://localhost:5000/myInventory/?email=${email}`;
           try {
             await fetch(url)
               .then(res => res.json())

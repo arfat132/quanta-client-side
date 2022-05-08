@@ -18,7 +18,7 @@ const ManageItem = ({ inventoryItem, handleDelete }) => {
                             {stock}
                         </td>
                         <td class="px-6 py-4 w-60 text-center">
-                            {price}
+                            ${price}
                         </td>
                         <td class="px-6 py-4 w-60 text-center">
                             {supplier}
