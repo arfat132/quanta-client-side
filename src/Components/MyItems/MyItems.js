@@ -15,13 +15,9 @@ const MyItems = () => {
 
     const getInventory = async () => {
       const email = user?.email;
-      const url = `http://localhost:5000/myInventory?email=${email}`;
+      const url = `https://sheltered-lowlands-93230.herokuapp.com/myInventory?email=${email}`;
 
-      const { data } = await axios.get(url, {
-        headers: {
-          authorization: `Bearer ${localStorage.getItem('accessToken')}`
-        }
-      });
+      const { data } = await axios.get(url);
       setMyInventory(data);
     }
     getInventory();
@@ -32,7 +28,7 @@ const MyItems = () => {
 
     const proceed = window.confirm('Are you sure?');
     if (proceed) {
-      const url = `http://localhost:5000/inventory/${id}`;
+      const url = `https://sheltered-lowlands-93230.herokuapp.com/inventory/${id}`;
       fetch(url, {
         method: 'DELETE'
       })
@@ -61,11 +57,11 @@ const MyItems = () => {
             }
           </div>
           <button onClick={() => navigate('/manageItems')} className='px-20 float-right uppercase text-xl font-bold text-sky-800 inline-flex items-center'>Manage Inventories  <svg className="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" stroke-Linejoin="round">
-          <path d="M5 12h14"></path>
-          <path d="M12 5l7 7-7 7"></path>
-        </svg></button>
+            <path d="M5 12h14"></path>
+            <path d="M12 5l7 7-7 7"></path>
+          </svg></button>
         </div>
-       
+
       </section>
     </div>
   );

@@ -10,14 +10,14 @@ const InventoryItems = () => {
 
     useEffect(() => {
         setLoading(true)
-        fetch('http://localhost:5000/inventory')
+        fetch('https://sheltered-lowlands-93230.herokuapp.com/inventory')
             .then(res => res.json())
             .then(data => {
                 setInventoryItems(data)
                 setLoading(false)
             }
             )
-        
+
     }, [])
     return (
         <>

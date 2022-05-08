@@ -63,11 +63,7 @@ const SignIn = () => {
         event.preventDefault();
         console.log(userInfo);
         await signInWithEmailAndPassword(userInfo.email, userInfo.password);
-        const userEmail = userInfo.email;
-        const { data } = await axios.post('http://localhost:5000/signIn', {userEmail})
-        console.log(data);
-        localStorage.setItem('accessToken', data.accessToken)
-        navigate(from, { replace: true });
+               
     };
     useEffect(() => {
         setLoading(true)
@@ -91,7 +87,7 @@ const SignIn = () => {
     useEffect(() => {
         setLoading(true)
         if (user) {
-           // navigate(from, { replace: true });
+           navigate(from, { replace: true });
         }
         setLoading(false)
     }, [user]);
@@ -151,8 +147,7 @@ const SignIn = () => {
                                                     </div>
                                                     <button onClick={() => signInWithGoogle()} className="flex items-center justify-center shadow-md bg-gray-50 border font-bold border-gray-300 text-gray-900 text-sm rounded-3xl focus:ring-blue-900 focus:border-blue-900 w-full p-2.5"> <img className='w-6 pr-2' src={GoogleLogo} alt='' /> Continue with Google</button>
                                                 </form>
-                                                <ToastContainer></ToastContainer>
-                                            </div>
+                                                                                            </div>
                                         </div>
                                         <div
                                             className="lg:w-6/12 flex items-center lg:rounded-3xl-r-lg rounded-3xl-b-lg lg:rounded-3xl-bl-none mx-auto bg-sky-800"
@@ -167,6 +162,7 @@ const SignIn = () => {
                             </div>
                         </div>
                     </div>
+                    <ToastContainer></ToastContainer>
                 </section>)}
         </>
     );

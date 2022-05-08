@@ -7,30 +7,30 @@ const ManageItems = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        fetch('http://localhost:5000/inventory')
+        fetch('https://sheltered-lowlands-93230.herokuapp.com/inventory')
             .then(res => res.json())
             .then(data => setInventoryItems(data))
     }, [])
 
-    const handleDelete = id =>{
+    const handleDelete = id => {
         const proceed = window.confirm('Are you sure?');
-        if(proceed){
-            const url = `http://localhost:5000/inventory/${id}`;
+        if (proceed) {
+            const url = `https://sheltered-lowlands-93230.herokuapp.com/inventory/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                const remaining = inventoryItems.filter(inventoryItem => inventoryItem._id !== id);
-                setInventoryItems(remaining);
-            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    const remaining = inventoryItems.filter(inventoryItem => inventoryItem._id !== id);
+                    setInventoryItems(remaining);
+                })
         }
     }
     return (
         <div className=' py-20 px-12'>
             <h1 className='text-center text-sky-800 uppercase text-3xl font-bold my-8'>Manage Inventory</h1>
-             <button onClick={()=>navigate('/addItems')} className="text-white mb-6 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-bold rounded-lg text-sm  px-5 py-2.5 text-center bg-sky-800 uppercase">Add items</button>
+            <button onClick={() => navigate('/addItems')} className="text-white mb-6 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-bold rounded-lg text-sm  px-5 py-2.5 text-center bg-sky-800 uppercase">Add items</button>
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
                 <table class="w-full text-sm text-left text-gray-500 ">
                     <thead class="text-xs text-gray-100 uppercase bg-sky-800">
@@ -62,7 +62,7 @@ const ManageItems = () => {
                         <ManageItem
                             key={inventoryItem._id}
                             inventoryItem={inventoryItem}
-                            handleDelete ={handleDelete}
+                            handleDelete={handleDelete}
                         ></ManageItem>)
                 }
 

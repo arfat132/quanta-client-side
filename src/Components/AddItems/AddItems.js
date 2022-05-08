@@ -11,25 +11,25 @@ const AddItems = () => {
         console.log(event);
         event.preventDefault();
         const inventory = {
-            email:user.email,
-            name:event.target.name.value,
-            image:event.target.image.value,
-            price:event.target.price.value,
+            email: user.email,
+            name: event.target.name.value,
+            image: event.target.image.value,
+            price: event.target.price.value,
             description: event.target.description.value,
             supplier: event.target.supplier.value,
-            stock:event.target.stock.value
+            stock: event.target.stock.value
         }
-        axios.post('http://localhost:5000/inventory', inventory)
+        axios.post('https://sheltered-lowlands-93230.herokuapp.com/inventory', inventory)
             .then(response => {
-            console.log(response)
+                console.log(response)
                 const { data } = response;
                 console.log(data.insertedId)
-            if(data.insertedId){
-                toast('Added Successfully!!!');
-                event.target.reset();
-            }
-        })
-       
+                if (data.insertedId) {
+                    toast('Added Successfully!!!');
+                    event.target.reset();
+                }
+            })
+
     };
 
     return (
@@ -68,7 +68,7 @@ const AddItems = () => {
                     </div>
                 </div>
                 <button type="submit" className="text-white bg-sky-800 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-sky-800 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center uppercase font-bold">Add Item</button>
-                
+
             </form>
             <ToastContainer></ToastContainer>
         </div>

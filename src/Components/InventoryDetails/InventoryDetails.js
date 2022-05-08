@@ -4,25 +4,25 @@ import { useNavigate, useParams } from 'react-router-dom';
 const InventoryDetails = () => {
     const { id } = useParams();
     const [inventoryDetails, setInventoryDetails] = useState({});
- 
+
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/inventory/${id}`)
+        fetch(`https://sheltered-lowlands-93230.herokuapp.com/inventory/${id}`)
             .then(res => res.json())
             .then(data => setInventoryDetails(data))
     }, [id, inventoryDetails])
 
     const handleUpdatedStock = event => {
         event.preventDefault();
-        
+
         const stock = event.target.stock.value;
         console.log(stock)
         const newStock = parseInt(stock) + inventoryDetails.stock;
-        const updatedStock ={ newStock };
-        console.log(updatedStock )
+        const updatedStock = { newStock };
+        console.log(updatedStock)
 
-        const url = `http://localhost:5000/inventory/${id}`;
+        const url = `https://sheltered-lowlands-93230.herokuapp.com/inventory/${id}`;
         fetch(url, {
             method: 'PUT',
             headers: {
@@ -36,15 +36,15 @@ const InventoryDetails = () => {
                 alert('Restock Successfully');
                 event.target.reset();
             })
-            
+
     }
     const handleDeliver = event => {
 
         const newStock = parseInt(inventoryDetails.stock) - 1;
-        const updatedStock ={ newStock };
-        console.log(updatedStock )
+        const updatedStock = { newStock };
+        console.log(updatedStock)
 
-        const url = `http://localhost:5000/inventory/${id}`;
+        const url = `https://sheltered-lowlands-93230.herokuapp.com/inventory/${id}`;
         fetch(url, {
             method: 'PUT',
             headers: {
@@ -56,9 +56,9 @@ const InventoryDetails = () => {
             .then(data => {
                 console.log('success', data);
                 alert('Delivered Successfully');
-                
+
             })
-            
+
     }
     return (
         <section className="text-gray-600 body-font overflow-hidden pt-12">
@@ -76,7 +76,7 @@ const InventoryDetails = () => {
                         </div>
                         <p className="leading-relaxed my-6">{inventoryDetails.description}</p>
                         <button onClick={handleDeliver} className="flex text-white bg-sky-800 border-0 py-2.5 px-4 hover:bg-indigo-800 rounded font-semibold text-sm mb-6">DELIVERED</button>
-                        <form onSubmit={ handleUpdatedStock} className="flex">
+                        <form onSubmit={handleUpdatedStock} className="flex">
                             <input
                                 type='number'
                                 name='stock'

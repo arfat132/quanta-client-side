@@ -1,6 +1,6 @@
 # Quanta
 
-Live Site Link: [Quanta]().
+Live Site Link: [Quanta](https://quanta-auth.web.app).
 
 ## Features
 
